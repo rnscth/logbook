@@ -1,0 +1,39 @@
+.loginPage {
+    /* font-family: inherit; */
+    margin: 0px;
+    width: calc(100vw - 80px);
+    height: calc(100vh - 160px);
+}
+
+.loginHeader{
+    /* font-family: inherit; */
+    /* width: 100vw; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginTitle{
+    width: 70px;
+    /* font-family: inherit; */
+    font-size: 25px;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginForm {
+    /* font-family: inherit; */
+    display: grid;
+    align-content: center;
+    margin: 50px auto auto auto;
+}
+
+.inputForm {
+    /* font-family: inherit; */
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}

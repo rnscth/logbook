@@ -1,0 +1,161 @@
+.header {
+    display: flex;
+    background-color: #335572;
+    height: 40px;
+} 
+
+.body {
+  margin: 0 0 0 0;
+}
+  .h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    color: #181a1d;
+    font-size: 25px;
+    text-transform: uppercase;
+    height: 30px;
+    width: 130px;
+    margin-top: 4px;
+    margin-left: 6px;
+}
+.link{
+    text-decoration-line: none;
+}
+.keyIcon {
+    margin-left: 4px;
+}
+
+  .intuitive {
+    padding-left: 10px;
+    margin-left: auto;
+    padding-right: 20px;
+    padding-top: 0px;
+    display: flex;
+    gap: 20px;
+  }
+  .spacer {
+    height: 3px;
+    background-color: #4a6074;
+  }
+  /* aside */
+  
+  .aside {
+    margin: 0px 0px 0px;
+    padding-left: 0px;
+    background-color: #335572;
+    width: 49px;
+    height: calc(100vh - 43px);
+    border-right: groove 1px #bdbdbd;
+  }
+  
+  .ul {
+    margin: 0px 0px 0px;
+    padding: 0px 0px 0px;
+    list-style-type: none;
+  }
+  
+  .sidebtn {
+    padding: 10px 5px 10px;
+  }
+  .btn {
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #335572;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    transform: scale(110%);
+    transition: 0.5s;
+  }
+  
+  /* content */
+  
+  .main {
+    display: flex;
+    height: calc(100vh - 43px);
+  }
+  .content {
+    display: grid;
+    width: calc(100vw - 40px);
+    background-color: #ebedf3;
+  }
+  .contentHeader {
+    /* width: calc(100vh - 40px); */
+    display: flex;
+    padding: 5px;
+    align-items: stretch;
+    background-color: #bdbdbd;
+    float: left;
+    margin-bottom: 10px;
+    height: 40px;
+    text-shadow: 2px 2px 5px #777777;
+  }
+  
+  .headertitle {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    padding-top: 10px;
+    padding-left: 20px;
+    margin-right: auto;
+    text-align: center;
+  }
+  .searchForm {
+    display: flex;
+  }
+  .searchInput {
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    width: 54px;
+    height: 30px;
+    margin: 3px;
+    padding-left: 15px;
+  }
+  .input[type="text"] {
+    transition: width 0.4s ease-in-out;
+  }
+  .searchInput:hover {
+    width: 200px ease-in-out;
+    transition: 0.5s;
+  }
+  .searchInput:focus {
+    width: 200px;
+  }
+  .loader {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .refresh {
+    margin-left: auto;
+}
+
+.logoutBtn{
+    margin-left: 5px;
+    background-color: #335572;
+    border: none;
+    cursor: pointer;
+}
+
+.logoutBtn:hover {
+  transform: scale(120%);
+  transition: 0.5s;
+}
+
+.logoutBox{
+  margin: auto auto auto auto
+}
+
+.userName {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    text-shadow: 1px 1px 2px rgb(48, 47, 47);
+    color: rgb(183, 189, 194);
+    font-size: 14px;
+    height: 20px;
+    padding-top: 10px;
+}
+  
+  

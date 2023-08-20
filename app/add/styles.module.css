@@ -1,0 +1,60 @@
+.addOrders {
+    margin: 0px;
+    width: calc(100vw -50px);
+    height: calc(100vh - 120px);
+    font-family: inherit;
+    font-size: 13px;
+  }
+  .btnBox {
+    display: flex;
+    height: 25px;
+    /* background-color: azure; */
+    padding-bottom: 10px;
+  }
+  .addBtn {
+    width: 150px;
+    border: none;
+    border-radius: 25px;
+    background-color: #bdbdbd;
+    font-size: 14px;
+    font-family: inherit;
+    height: 100%;
+    margin-left: 7px;
+    margin-right: 7px;
+    text-shadow: 2px 2px 5px #777777;
+  }
+  
+  .addBtn:hover {
+    transform: scale(110%);
+    transition: 0.5s;
+  }
+  .addContent {
+    height: calc(100vh - 103px);
+    height: calc(100vh - 149px);
+    overflow: scroll;
+    width: calc(100vw - 50px);
+  }
+  .addOrdersTable {
+    width: calc(100vw - 75px);
+  
+    overflow: scroll;
+    width: calc(100vw - 75px);
+    margin-left: 10px;
+    border-collapse: collapse;
+    border: none;
+    letter-spacing: 1px; /* background-color: #777777; */
+  }
+  
+  .addOrderHeader:hover {
+    background-color: #bdbdbd;
+  }
+  .addOrderHeader {
+    background-color: #bdbdbd;
+  }
+  .desc {
+    width: 300px;
+  }
+  .newOrder {
+    /* background-color: aqua; */
+    height: 20px;
+  }

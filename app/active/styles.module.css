@@ -1,0 +1,67 @@
+.ordersListContent {
+    overflow: scroll;
+    height: calc(100vh - 103px);
+    min-width: 1160px;
+    font-size: 13px;
+}  
+.ordersTable {
+   width: calc(100vw - 75px);
+   margin-left: 10px;
+   border-collapse: collapse;
+   border: none;
+   letter-spacing: 1px;
+}
+.tableHeader {
+  background-color: #bdbdbd;
+}
+.tableHeader:hover {
+  background-color: #bdbdbd;
+}
+.tr {
+  border-bottom: 1px solid #d4d4d4;
+}
+.tr:hover {
+  background-color: #d4d3d3;
+}
+.th {
+    padding: 5px 10px;
+    text-align: center;
+    /* min-width: 100px; */
+}
+.link{
+    text-decoration: none; 
+    color: black;
+}
+
+.orderbtn {
+    display: flex;  
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    border: none;
+}
+.orderNumber {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.assignBtn {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.statusBox {
+    border-radius: 25px;
+    width: 23px;
+    height: 23px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.descrCell {
+    width: 250px;
+}

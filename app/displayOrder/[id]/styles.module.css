@@ -1,0 +1,160 @@
+.displayOrder {
+  display: flex;
+  font-size: 14px;
+  width: calc(100vw - 50px);
+  /* overflow: scroll; */
+}
+
+.section{
+  /* background-color: aqua; */
+  margin: 5px;
+  width: calc(40vw - 30px);
+  margin-left: auto;
+}
+.sectionElement{
+  display: flex;
+  margin: 5px;
+}
+.sectionLabel{
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.sectionValueInactive,
+.sectionValue{
+  min-height: 18px;
+  padding-left: 5px;
+  background-color: none;
+  width: 25vw;
+  border: 1px solid #999;
+  border-width: 1px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+.sectionValueInactive{
+  background: #b6b6b6;
+}
+.aside{
+  /* background-color: aqua; */
+  margin: 5px;
+  width: 50px;
+}
+.btn {
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #335572;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.btn:hover {
+  transform: scale(110%);
+  transition: 0.5s;
+}
+
+.orderInput {
+  width: 100%;
+  font-size: 15px;
+  margin-left: 3px;
+  outline: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 0px 0px 0px 0px;
+  height: 20px;
+  background: none;
+  border: none;
+}
+
+/* comments */
+
+
+.comentSection {
+  overflow: scroll;
+  margin: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  height: calc(100vh - 410px);
+  background-color: #b6b6b6;
+  width: calc(100vw - 90px);
+  font-size: 13px;
+}
+
+.commentBox {
+  width: calc(100vw - 135px);
+  min-height: 60px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #888;
+}
+
+.inputFormBox {
+  width: calc(100vw - 135px);
+  display: flex;
+}
+
+.notesBox {
+  width: 45px;
+  margin: 10px;
+  margin-left: 0px;
+  height: auto;
+}
+.notes {
+  padding-top: 0px;
+}
+.inputBox {
+  width: 1000px;
+  margin: 5px;
+  width: calc(100vw - 300px);
+}
+.commentInput {
+  background: none;
+  background-color: #999;
+  border: none;
+  border-radius: 15px;
+  padding-left: 10px;
+  width: calc(100% - 10px);
+  height: 100%;
+}
+.submitBtn {
+  margin-left: 10px;
+  margin-top: 19px;
+  border: none;
+  border-radius: 50px;
+  width: 90px;
+  height: 30px;
+  font-family: inherit;
+  font-weight: 700;
+  background-color: #b6b6b6;
+}
+.submitBtn:hover {
+  transform: scale(110%);
+  transition: 0.8s;
+}
+.commentDate{
+  height: 20px;
+  margin-left: 7px;
+  margin-right: 7px;
+  display: flex;
+}
+
+.commentId {
+  opacity: 0.4;
+}
+
+.commentInfo{
+  display: flex;
+  margin-bottom: 0px;
+}
+.commentUser{
+  font-weight: 700  ;
+  padding-left: 5px;
+}
+.commentDateTime{
+  margin-left: 6px;
+}
+.commentEvent{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
