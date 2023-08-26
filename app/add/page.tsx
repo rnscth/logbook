@@ -18,7 +18,6 @@ const inter = Inter({ subsets: ['latin'] })
 function AddOrders() {
   const [showUploadBtn, setShowUploadBtn] = useState(false);
   const [tableArray, setTableArray] = useState<any[]>([]);
-  //@ts-ignore
   const {user, setHeaderTitle, apiRoute, checkSession, authTokens} = useContext(UserContext);
   function handleClearClipboard(){
     setTableArray([]);

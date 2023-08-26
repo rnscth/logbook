@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Displayorder() {
-  //@ts-ignore
+
   const { user, setHeaderTitle, checkSession,authTokens, apiRoute  } = useContext(UserContext);
   const params = useParams();
   const [order, setOrder] = useState<any>([]);

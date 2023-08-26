@@ -1,9 +1,7 @@
 'use client'
 import styles from './styles.module.css'
 import {Inter} from 'next/font/google'
-import axios from 'axios'
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
 import { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../userContext';
 import { Metadata } from 'next'
@@ -16,7 +14,7 @@ export const metadata: Metadata = {
 const inter = Inter({ subsets: ['latin']})
 
 const LoginPage: React.FC = () => {
-  //@ts-ignore
+
   const { login, setHeaderTitle  } = useContext(UserContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

@@ -1,17 +1,33 @@
 'use client'
 import React from 'react'
-import { useEffect, useState} from 'react';
 import axios from 'axios'
 import styles from './styles.module.css'
 import Link from 'next/link';
-import { toast } from 'react-toastify';
 import { useContext } from 'react';
 import { UserContext } from '../userContext';
+import { toast } from 'react-toastify';
 
 
-export default function OrdersTable(route : any){
-  //@ts-ignore
-  const { user, authTokens, apiRoute, orders, getOrders } = useContext(UserContext);
+export default function OrdersTable(ordersRoute: { ordersRoute: string; }){
+  let route = ordersRoute.ordersRoute
+
+  const { user, authTokens, apiRoute, orders, setOrders } = useContext(UserContext);
+
+  let getOrders = async (route: string) => {
+    console.log(route);
+    let config = {
+      headers: {
+        'Authorization': 'Bearer ' + authTokens.access  
+      }
+    };
+    try {
+      const response = await axios.get(route, config );
+      setOrders(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
   async function handleAssign(order_number: number){
     let date = new Date();
@@ -24,20 +40,10 @@ export default function OrdersTable(route : any){
         'Authorization': 'Bearer ' + authTokens.access  
       }
     };
-
-    try {
       var response = await axios.put(`${apiRoute}order/assign/${order_number}/`, assignOrder, config);
       console.log(response.data)
+      toast.success(response.data.success)
       getOrders(route);
-    } catch (error) {
-      // if (!response.data.success) {
-      //   console.log(error)
-      //   toast.warn(`Order ${order_number} already assigned`);
-      // }else {
-      //   getOrders(route);
-      //   toast.success(`Order ${order_number} assigned successfully`);
-      // }
-    }
   }
 
   function assignBtn(dhra: { username: any; }, order_number: number){  
