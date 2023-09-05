@@ -11,6 +11,7 @@ export const UserContext = createContext<any | undefined>(undefined);
 export const UserProvider = ({ children } : { children: React.ReactNode })=> {
   
   let router = useRouter();  
+  
   let [authTokens, setAuthTokens] = useState(() => {
     const storedTokens = localStorage.getItem('authTokens');
     if (storedTokens) {
@@ -18,16 +19,18 @@ export const UserProvider = ({ children } : { children: React.ReactNode })=> {
     }
     return null;
 });
-  let [user, setUser] = useState(() => {
+  let [user, setUser] = useState<any>(() => {
     const authToken = localStorage.getItem('authTokens');
     if (authToken) {
         return jwtDecode(authToken);
     }
     return null;
 });
-  let [headerTitle, setHeaderTitle] = useState('Active Orders list')
-  let [welcomeMsj, setWelcomeMsj] = useState(false)
-  let [orders, setOrders] = useState([]);
+  let [config, setConfig] = useState<any>([]);
+  let [headerTitle, setHeaderTitle] = useState<string>('Active Orders list')
+  let [welcomeMsj, setWelcomeMsj] = useState<boolean>(false)
+  let [orders, setOrders] = useState(false);
+  let [userRoute, setUserRoute] = useState('');
 
   const apiRoot = "http://localhost:8000/"
   const apiRoute = `${apiRoot}orders/`
@@ -36,6 +39,12 @@ export const UserProvider = ({ children } : { children: React.ReactNode })=> {
   const redOrdersRoute = `${apiRoute}red/`
   const completeOrdersRoute = `${apiRoute}complete/`
   const rejectOrdersRoute = `${apiRoute}reject/`
+
+  useEffect(() => {
+    if (user) {
+      setUserRoute(`${apiRoute}user/${user.user_id}/`)
+    }
+  }, [user]);
   
   let logoutUser = () => {
     localStorage.removeItem('authTokens');
@@ -107,9 +116,18 @@ export const UserProvider = ({ children } : { children: React.ReactNode })=> {
     }, 200000)
     return ()=> clearInterval(interval)
   }, [authTokens])
-    
+
+  useEffect(()=> {
+  setConfig({
+    headers: {
+      'Authorization': 'Bearer ' + authTokens.access  
+    }
+    })
+  }, [authTokens])
+
+  
   let checkSession = () => {
-    if (!user) {
+    if (!user) {     
       toast.warn('Please log in to continue')
       router.push('/login')
     }
@@ -119,6 +137,7 @@ export const UserProvider = ({ children } : { children: React.ReactNode })=> {
     if (!localStorage.getItem('authTokens')){
       router.push('/login');
       setWelcomeMsj(false)
+      
     } else {
       console.log('updating token on refresh')
       updateToken()
@@ -142,9 +161,11 @@ export const UserProvider = ({ children } : { children: React.ReactNode })=> {
     redOrdersRoute : redOrdersRoute,
     rejectOrdersRoute : rejectOrdersRoute, 
     completeOrdersRoute : completeOrdersRoute,
+    userRoute : userRoute,
     orders : orders,
     setOrders : setOrders,
     getOrders : getOrders,
+    config : config,
   }
 
   return (

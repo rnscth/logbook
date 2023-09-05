@@ -24,13 +24,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-    const {setHeaderTitle, apiRoute, checkSession, authTokens} = useContext(UserContext);
+    const {setHeaderTitle, apiRoute, checkSession, config} = useContext(UserContext);
 
     var [chartDistr, setChartDist] = useState<any>(null);
 
     async function getDistr(){
         try {
-            var response = await axios.get(`${apiRoute}distribution/`);
+            var response = await axios.get(`${apiRoute}distribution/`, config);
             console.log(response.data)
             setChartDist(response.data)
         } catch (error) {

@@ -15,16 +15,16 @@ const DoughnutChart: React.FC<DoughnutChartProps> = ({ distribution }) => {
     useEffect(() => {
         var canvasElement = (document.getElementById(distribution.title) as HTMLCanvasElement);
         var statusColor = {
-            New : "rgb(255, 255, 255, 0.5)",  
-            Reopen :  "rgb(128, 128, 128, 0.5)",
-            Assigned : "rgb(230, 180, 0, 0.5)",
-            Liberated : "rgb(2, 138, 15, 0.5)",
-            NC : "rgb(239, 68, 68, 0.5)",
-            NCR : "rgb(239, 68, 68, 0.5)",
-            PL : "rgb(239, 68, 68, 0.5)",
-            DN : "rgb(239, 68, 68, 0.5)",
-            Complete : "rgb(10, 17, 114, 0.5)",
-            Rejected : "rgb(100, 59, 159, 0.5)",
+            New : "rgb(255, 255, 255)",  
+            Reopen :  "rgb(128, 128, 128)",
+            Assigned : "rgb(230, 180, 0)",
+            Liberated : "rgb(2, 138, 15)",
+            NC : "rgb(239, 68, 68)",
+            NCR : "rgb(239, 68, 68)",
+            PL : "rgb(239, 68, 68)",
+            DN : "rgb(239, 68, 68)",
+            Complete : "rgb(10, 17, 114)",
+            Rejected : "rgb(100, 59, 159)",
             
         }
 

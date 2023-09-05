@@ -15,13 +15,11 @@ export const metadata: Metadata = {
   description: 'Display Order',
 }
 
-
-
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Displayorder() {
 
-  const { user, setHeaderTitle, checkSession,authTokens, apiRoute  } = useContext(UserContext);
+  const { user, setHeaderTitle, checkSession, apiRoute, config  } = useContext(UserContext);
   const params = useParams();
   const [order, setOrder] = useState<any>([]);
   const [pn, setPn] = useState<any>([])
@@ -36,11 +34,6 @@ export default function Displayorder() {
   const [identification, setIdentification] = useState("");
   
   const getOrder = async () => {
-    let config = {
-      headers: {
-        'Authorization': 'Bearer ' + authTokens.access  
-      }
-    };
     try {
       const response = await axios.get(`${apiRoute}order/${params.id}/`,config);
       setOrder(response.data);
@@ -50,11 +43,6 @@ export default function Displayorder() {
     }
   };
   const getComments = async () => {
-    let config = {
-      headers: {
-        'Authorization': 'Bearer ' + authTokens.access  
-      }
-    };
     try {
       const response = await axios.get(`${apiRoute}comments/${order.id}/`, config);
       setComments(response.data);
@@ -94,11 +82,6 @@ export default function Displayorder() {
   }
 
   async function handleSaveOrder() {
-    let config = {
-      headers: {
-        'Authorization': 'Bearer ' + authTokens.access  
-      }
-    };
     let date = new Date();
     let updatedOrder = {
       id : order.id,
@@ -126,11 +109,6 @@ export default function Displayorder() {
 
   async function submitComment(e: { preventDefault: () => void; }) {
     e.preventDefault();
-    let config = {
-      headers: {
-        'Authorization': 'Bearer ' + authTokens.access  
-      }
-    };
     if (newComment.length !== 0) {
       var date = new Date();
       var newComm = {

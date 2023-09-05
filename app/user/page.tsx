@@ -17,11 +17,10 @@ const inter = Inter({ subsets: ['latin']})
 
 export default function OrdersList() {
 
-  const {setHeaderTitle, checkSession, getOrders, apiRoute, user} = useContext(UserContext);
-  var userRoute = `${apiRoute}user/${user.user_id}/`
+  const {setHeaderTitle, checkSession, getOrders, userRoute} = useContext(UserContext);
 
 
-  useEffect(() => {
+  useEffect(() => {  
     checkSession();
     setHeaderTitle(`User Orders List`)
     getOrders(userRoute);
@@ -29,7 +28,7 @@ export default function OrdersList() {
 
   return (
     <div className={inter.className}>
-      <OrdersTable ordersRoute={userRoute}/>
+      <OrdersTable ordersRoute={userRoute}/> 
     </div>
   );
 }

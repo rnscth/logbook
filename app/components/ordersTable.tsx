@@ -7,19 +7,34 @@ import { useContext } from 'react';
 import { UserContext } from '../userContext';
 import { toast } from 'react-toastify';
 
+interface Order {
+  id: React.Key;
+  status: {
+      id: number;
+      color: any;
+  };
+  number: number;
+  date: string;
+  hour: string;
+  pn: {
+      id: string ;
+      description: string;
+  };
+  batch: string;
+  qty: number;
+  dhra: {
+      username: string;
+  };
+  updated: string;
+}
 
 export default function OrdersTable(ordersRoute: { ordersRoute: string; }){
   let route = ordersRoute.ordersRoute
 
-  const { user, authTokens, apiRoute, orders, setOrders } = useContext(UserContext);
+  const { user, apiRoute, orders, setOrders, config } = useContext(UserContext);
 
   let getOrders = async (route: string) => {
     console.log(route);
-    let config = {
-      headers: {
-        'Authorization': 'Bearer ' + authTokens.access  
-      }
-    };
     try {
       const response = await axios.get(route, config );
       setOrders(response.data);
@@ -35,18 +50,13 @@ export default function OrdersTable(ordersRoute: { ordersRoute: string; }){
       user_id : user.user_id,
       date : date.toISOString(),
     }
-    let config = {
-      headers: {
-        'Authorization': 'Bearer ' + authTokens.access  
-      }
-    };
       var response = await axios.put(`${apiRoute}order/assign/${order_number}/`, assignOrder, config);
       console.log(response.data)
       toast.success(response.data.success)
       getOrders(route);
   }
 
-  function assignBtn(dhra: { username: any; }, order_number: number){  
+  function assignBtn(dhra: { username: any; }, order_number: number ){  
   if (dhra) {
     return <th className={styles.th}>{dhra.username.toUpperCase()}</th>
     } else {
@@ -73,6 +83,7 @@ export default function OrdersTable(ordersRoute: { ordersRoute: string; }){
 
   return (
   <section className={styles.ordersListContent}>
+    {orders ? 
       <table className={styles.ordersTable}>
         <thead className={styles.tableHeader}>
           <tr>
@@ -88,7 +99,7 @@ export default function OrdersTable(ordersRoute: { ordersRoute: string; }){
           </tr>
         </thead>
         <tbody className={styles.tableBody}>
-          {orders.map((order: { id: React.Key ; status: { color: any; }; number: number ; date: string ; hour: string; pn: { id: string | number ; description: string  }; batch: string ; qty: number ; dhra: { username: string; }; updated: string; }) => (
+          {orders.map((order: Order) => (
             <tr className={styles.tr} key={order.id}>
               <th className={styles.th}>
                 <div className={styles.orderbtn}>
@@ -112,7 +123,7 @@ export default function OrdersTable(ordersRoute: { ordersRoute: string; }){
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> : <div>Loading..</div>}
     </section>
   );
 }

@@ -17,9 +17,7 @@ const inter = Inter({ subsets: ['latin']})
 
 
 export default function OrdersList() {
-
   const {setHeaderTitle, checkSession, completeOrdersRoute, getOrders} = useContext(UserContext);
-
 
   useEffect(() => {
     checkSession();

@@ -18,7 +18,7 @@ const inter = Inter({ subsets: ['latin'] })
 function AddOrders() {
   const [showUploadBtn, setShowUploadBtn] = useState(false);
   const [tableArray, setTableArray] = useState<any[]>([]);
-  const {user, setHeaderTitle, apiRoute, checkSession, authTokens} = useContext(UserContext);
+  const {user, setHeaderTitle, apiRoute, checkSession, config} = useContext(UserContext);
   function handleClearClipboard(){
     setTableArray([]);
     setShowUploadBtn(false);
@@ -75,11 +75,6 @@ function AddOrders() {
 
   async function handleUploadNewOrder(order: { number: any; pn_id: any; pn_description: any; batch: any; qty: any; hour: any; date: any; }) {
     let date = new Date();
-    let config = {
-      headers: {
-        'Authorization': 'Bearer ' + authTokens.access  
-      }
-    };
     let newOrder = { 
       'user_id' : user.user_id, 
       'number' : order.number,
