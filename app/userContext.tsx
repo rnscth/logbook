@@ -16,8 +16,9 @@ export const UserProvider = ({ children } : { children: React.ReactNode })=> {
     const storedTokens = localStorage.getItem('authTokens');
     if (storedTokens) {
         return JSON.parse(storedTokens);
+    } else {
+    return false; 
     }
-    return null;
 });
   let [user, setUser] = useState<any>(() => {
     const authToken = localStorage.getItem('authTokens');
@@ -48,8 +49,8 @@ export const UserProvider = ({ children } : { children: React.ReactNode })=> {
   
   let logoutUser = () => {
     localStorage.removeItem('authTokens');
-    setAuthTokens(null);
-    setUser(null);
+    setAuthTokens(false);
+    setUser(false);
     router.push('/login');
     setWelcomeMsj(false);
   }
